@@ -1,28 +1,44 @@
 # FactMetrics
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fact_metrics`. To experiment with that code, run `bin/console` for an interactive prompt.
+FactMetrics provides a collection of class methods for defining metrics on Fact
+models.
 
 ## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
 
 Install the gem and add to the application's Gemfile by executing:
 
 ```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+bundle add fact_metrics
 ```
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
 ```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+gem install fact_metrics
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+In your Fact model you can add the following types of metric definitions.
+
+### Counts
+
+```
+  count :sales_quantity, all: true
+```
+
+### Averages
+
+```
+  average :regular_unit_price
+```
+
+### Percentages
+
+```
+  percentage :received, field: quantity_received, condition: "> 0"
+  percentage :inspected, field: quantity_inspected, condition: "> 0"
+```
 
 ## Development
 
@@ -32,7 +48,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/fact_metrics.
+Bug reports and pull requests are welcome on GitHub at https://github.com/PatchMonkeyHQ/fact_metrics.
 
 ## License
 
