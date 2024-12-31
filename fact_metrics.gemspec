@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 3.0.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/PatchMonkeyHQ/fact_metric"
+  spec.metadata["source_code_uri"] = "https://github.com/PatchMonkeyHQ/fact_metrics"
   spec.metadata["changelog_uri"] = "https://github.com/PatchMonkeyHQ/fact_metrics/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
