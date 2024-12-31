@@ -4,6 +4,11 @@ require_relative "fact_metrics/version"
 require_relative "fact_metrics/average"
 require_relative "fact_metrics/count"
 require_relative "fact_metrics/percentage"
+require_relative "fact_metrics/average_config"
+require_relative "fact_metrics/count_config"
+require_relative "fact_metrics/percentage_config"
+require_relative "fact_metrics/metric"
+require "active_support/concern"
 
 module FactMetrics
   class Error < StandardError; end
