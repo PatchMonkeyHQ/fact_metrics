@@ -24,7 +24,7 @@ class FactMetrics::PercentageConfig
     <<~SQL
       ROUND(
         (
-          (COUNT(*) FILTER (WHERE #{condition_sql}))::decimal
+          CAST(COUNT(*) FILTER (WHERE #{condition_sql}) AS DECIMAL)
           /
           NULLIF(#{denominator_sql}, 0)
         ) * 100,
