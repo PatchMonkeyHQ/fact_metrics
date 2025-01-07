@@ -40,6 +40,22 @@ In your Fact model you can add the following types of metric definitions.
   percentage :inspected, field: quantity_inspected, condition: "> 0"
 ```
 
+### Accessing metrics
+
+Depending on your needs, you can either calculate all of the metrics, or a
+subset. If your Fact model defines a large number of metrics specifying a subset
+of them can often improve performance.
+
+To get all available metrics:
+```
+  Fact::Sales.all_metrics
+```
+
+To get only sales_quantity_count:
+```
+  Fact::Sales.load_metrics(:sales_quantity_counts)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

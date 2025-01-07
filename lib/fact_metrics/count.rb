@@ -1,5 +1,3 @@
-
-
 module FactMetrics::Count
   extend ActiveSupport::Concern
 
