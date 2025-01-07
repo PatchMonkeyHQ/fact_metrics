@@ -1,4 +1,6 @@
-## [Unreleased]
+## [0.1.1] - 2025-01-07
+
+- Update percentage SQL to use ANSI standard decimal casting.
 
 ## [0.1.0] - 2024-12-31
 
