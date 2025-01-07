@@ -1,3 +1,7 @@
+## [0.1.2] - 2025-01-07
+
+- Cast percentage numerator to Float.
+
 ## [0.1.1] - 2025-01-07
 
 - Update percentage SQL to use ANSI standard decimal casting.
