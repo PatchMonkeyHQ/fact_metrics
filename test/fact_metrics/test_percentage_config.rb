@@ -83,7 +83,7 @@ class FactMetricsPercentageConfigTest < ActiveSupport::TestCase
     expected_sql = <<~SQL
       ROUND(
         (
-          CAST(COUNT(*) FILTER (WHERE true) AS DECIMAL)
+          CAST(COUNT(*) FILTER (WHERE true) AS FLOAT)
           /
           NULLIF(SUM(CASE WHEN example IS NOT NULL THEN 1 END), 0)
         ) * 100,
