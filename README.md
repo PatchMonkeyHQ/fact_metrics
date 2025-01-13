@@ -23,17 +23,35 @@ In your Fact model you can add the following types of metric definitions.
 
 ### Counts
 
+The count metric is useful for counting the number of records that match a
+specific filter condition.
+
+The most common situation is to capture all of the rows.
+
 ```
-  count :sales_quantity, all: true
+  count :sales, all: true
 ```
 
+The count metric also supports the :equal and :condition keys.
+
 ### Averages
+
+The average metrics help to find averages for a given field.
 
 ```
   average :regular_unit_price
 ```
 
+The :field key is also supported if you'd like to rename the average method.
+
+```
+  average :standard_unit_price, field: :regular_unit_price
+```
+
 ### Percentages
+
+Percentages support a number of condition options, :equal, :in, :all, and
+:condition.
 
 ```
   percentage :received, field: quantity_received, condition: "> 0"
@@ -53,7 +71,7 @@ To get all available metrics:
 
 To get only sales_quantity_count:
 ```
-  Fact::Sales.load_metrics(:sales_quantity_counts)
+  Fact::Sales.load_metrics(:sales_counts)
 ```
 
 ## Development
