@@ -9,6 +9,8 @@ module FactMetrics::Average
 
       scope(average_config.scope_name, -> {select(average_config.sql)} )
       composed_of(*average_config.composed_of_attributes)
+
+      metric_hash[average_config.scope_name] = [average_config.uses].compact
     end
   end
 end
