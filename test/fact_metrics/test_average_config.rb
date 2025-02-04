@@ -47,7 +47,7 @@ class FactMetricsAverageConfigTest < ActiveSupport::TestCase
   def test_metric_options
     average = FactMetrics::AverageConfig.new(:example)
 
-    expected_options = { name: "average_example_metric" }
+    expected_options = {name: "average_example_metric"}
     assert_equal expected_options, average.metric_options
   end
 
@@ -58,7 +58,7 @@ class FactMetricsAverageConfigTest < ActiveSupport::TestCase
 
     assert_equal :average_example_metric, name
     assert_equal "Metric", hsh[:class_name]
-    assert_equal({ "average_example" => :value }, hsh[:mapping])
+    assert_equal({"average_example" => :value}, hsh[:mapping])
 
     metric = hsh[:constructor].call
     assert_nil metric.value

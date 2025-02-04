@@ -8,7 +8,9 @@ class FactMetrics::AverageConfig
   end
 
   def scope_name = "#{name}_averages"
+
   def sql_result_name = "average_#{name}"
+
   def composed_of_name = "average_#{name}_metric"
 
   def composed_of_attributes

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MockModel
+class AverageMockModel
   include FactMetrics
 
   def self.scope(*args)
@@ -24,19 +24,19 @@ end
 
 class FactMetricsAverageTest < Minitest::Test
   def test_average_calls_scope
-    @mock = MockModel.new
+    @mock = AverageMockModel.new
 
     assert_equal "revenue_averages", @mock.scope_args[0]
   end
 
   def test_average_calls_composed_of
-    @mock = MockModel.new
+    @mock = AverageMockModel.new
 
     assert_equal :average_revenue_metric, @mock.composed_of_args[0]
   end
 
   def test_adds_scope_to_metric_hash
-    @mock = MockModel.new
+    @mock = AverageMockModel.new
 
     assert_equal "revenue_averages", @mock.metric_hash.keys.first
   end

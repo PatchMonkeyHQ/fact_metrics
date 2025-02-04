@@ -1,29 +1,43 @@
 require "test_helper"
 
-class FactMetricsCountTest < ActiveSupport::TestCase
-  class TestModel
-    include FactMetrics::Count
+class CountMockModel
+  include FactMetrics
 
-    def self.scope(name, body)
-      @scopes ||= {}
-      @scopes[name] = body
-    end
+  def self.scope(*args)
+    @@scope_args = args
+  end
 
-    def self.scopes
-      @scopes || {}
-    end
+  def self.composed_of(*args)
+    @@composed_of_args = args
+  end
 
-    def self.composed_of(name, **_args)
-      @composed_metrics ||= []
-      @composed_metrics << name
-    end
+  def scope_args
+    @@scope_args
+  end
 
-    def self.composed_metrics
-      @composed_metrics || []
-    end
+  def composed_of_args
+    @@composed_of_args
+  end
 
-    def self.metric_hash
-      @metric_hash ||= {}
-    end
+  count :all
+end
+
+class FactMetricsCountTest < Minitest::Test
+  def test_count_calls_scope
+    @mock = CountMockModel.new
+
+    assert_equal "all_counts", @mock.scope_args[0]
+  end
+
+  def test_count_calls_composed_of
+    @mock = CountMockModel.new
+
+    assert_equal :all_count_metric, @mock.composed_of_args[0]
+  end
+
+  def test_adds_scope_to_metric_hash
+    @mock = CountMockModel.new
+
+    assert_equal "all_counts", @mock.metric_hash.keys.first
   end
 end
